@@ -20,12 +20,10 @@
   }
 
   function removeFromCart() {
-    cartItems.update(items => {
-      return items.filter((item) => {
-        return item.id != id
-      })
-    })
+    cartItems.removeItem(id);
   }
+
+  
 </script>
 
 <style>
