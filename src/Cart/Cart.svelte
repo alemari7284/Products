@@ -3,6 +3,14 @@
   import cartItems from "./cart-store";
   import CartItem from "./CartItem.svelte";
 
+  import { timer } from "../timer-store"
+
+  const unsubscribe = timer.subscribe(count => {
+    console.log('Cart:' + count );
+  })
+
+
+
   // let items;
 
   // const unsubscribe = cartItems.subscribe(its=> {
@@ -10,11 +18,11 @@
   //   console.log(items);
   // });
 
-  // onDestroy(() => {
-  //   if (unsubscribe) {
-  //     unsubscribe();
-  //   }
-  // })
+  onDestroy(() => {
+    if (unsubscribe) {
+      unsubscribe();
+    }
+  })
 
 </script>
 
